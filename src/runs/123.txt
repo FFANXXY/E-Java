@@ -1,0 +1,8 @@
+$
+prints (你是什么东西！,我是SB)
+Value(a,2)
+printv(a)
+Value(a,4)
+printv(a)
+Value(b,10)
+$
