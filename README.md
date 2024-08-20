@@ -74,5 +74,55 @@ But Remember that ***When you turn it on, you can only use it once***
                         prints(<s> Author)
                         输出Author:Author
 
-                        prints(<s> Author,<s> Version)
-                        额外输出Version:Version
+                       prints(<s> Author,<s> Version)
+                       额外输出Version:Version
+
+实例: Example:
+
+$
+prints(Author,Version)
+
+//这是注释
+
+这样也可以
+
+printf(Welcome!)
+
+Value(1,1)
+
+random(a,10,100)
+
+opera(add,a,1,result)
+
+@n
+
+print(Result is:)
+
+printv(result)
+
+$
+
+输出 Output
+
+===E-=JAVA-loading===
+
+Authors:Author
+
+Version:Version
+
+-----------------------
+
+Welcome!
+
+Result is:18.0
+
+======================
+
+**Also, you can use %123 (or %123.txt) to load the example in edit**
+
+**你也可以用%123 (或%123.txt)来加载内置的实例**
+
+***当你%Over时，将会清空变量***
+
+***When you input %Over , it will clean the Values***
+
