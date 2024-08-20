@@ -1,0 +1,6 @@
+&reload
+//清空变量
+
+$
+prints(Fanxy,clearValues)
+$

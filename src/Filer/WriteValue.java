@@ -28,6 +28,7 @@ public class WriteValue {
                 try {
                     if (out != null) {
                         out.close();
+                    }else{
                         error.sys("Filer.WriteValue.write<close.BufferedWriter.EMPTY>","There's nothing with the Reader");
                     }
                 } catch (IOException e) {
@@ -109,5 +110,15 @@ public class WriteValue {
             System.err.println("PackageError " + e.getMessage());
         }
         return Optional.empty(); //返回空
-}}
+
+}
+    //清空
+    public static void voidFile() throws Exception{
+        File f = new File ("src/Value/value.txt");
+        FileWriter fw = new FileWriter (f);
+        fw.write("");
+        fw.flush();
+        fw.close();
+    }
+}
 

@@ -1,9 +1,27 @@
+&reload
+//清空变量
+
 $
-prints (你是什么东西！,我是SB)
-Value(a,2)
-printv(a)
-Value(a,4)
-printv(a)
-Value(b,10)
-printv(b)
+prints(Fanxy,H.D.D)
+//换行,@n
+@n
+//
+printf(----------------)
+Value(author,HDD by Fanxy)
+
+print(Wait Some Times,The Opened App was:)
+printv(author)
+
+@n
+random(ram,124,126)
+print(总共用时:)
+printv(ram)
+print(ms)
+
+Value(1,1)
+
+@n
+opera(add,ram,1,over)
+printv(over)
+
 $
