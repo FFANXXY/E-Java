@@ -5,4 +5,5 @@ printv(a)
 Value(a,4)
 printv(a)
 Value(b,10)
+printv(b)
 $

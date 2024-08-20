@@ -1,4 +1,4 @@
-import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,12 +66,14 @@ public class Main {
                             List<String> par = getPar(parameter);
                             int pars = par.size();
                             if (pars == 2) {
-                                WriteValue.write(par.get(0), par.get(1));
+                                try {
+                                    WriteValue.write(par.get(0), par.get(1));
+                                }catch (Exception e2) {error.warn(reading,e2.toString());}
                             }else {
                                 error.out(reading, "Must be 2 parameters with \"Value\" \n | <Value:warn>_x1i1e");
                             }
 
-                        } catch (Exception e) {error.out(reading, "Can't be empty with \"Value\" \n | <prints:error>_x1c");}
+                        } catch (Exception e) {error.out(reading, "Can't write value with \"Value\" \n | <prints:error>_x0_\n>>System.error");}
                     }else if (line.startsWith("printv")) {
                         try {
                             parameter = line.substring(line.indexOf("(") + 1, line.indexOf(")"));

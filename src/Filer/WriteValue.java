@@ -11,30 +11,43 @@ import java.util.Scanner;
 public class WriteValue {
 
     //写下新变量
-    public static void write(String content, String value) { //会无条件改下第一行,加上之前内容!
-        try {
-            boolean ishad;
-            ishad = check(content, value);
-            if(!ishad) {
-            BufferedWriter out = new BufferedWriter(new FileWriter("src/Value/value.txt"));
-            out.write(content + "(" + value + ")");
-            out.close();
-            BufferedReader in = new BufferedReader(new FileReader("src/Value/value.txt"));
-            in.close();}
-        } catch (IOException e) {
-            System.out.println("exception occoured" + e);
+    public static void write(String content, String value) {
+        boolean isHaveValue;
+        isHaveValue = check(content, value);
+        if(!isHaveValue) {
+            String wrs = content + "(" + value + ")";
+            BufferedWriter out = null;
+            try {
+                out = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream("src/Value/value.txt", true)));
+                out.write(wrs + "\r\n");
+            } catch (Exception e) {
+                e.fillInStackTrace();
+                error.sys("Filer.WriteValue.write<close.BufferedWriter>","There's sth wrong with write file",e);
+            } finally {
+                try {
+                    if (out != null) {
+                        out.close();
+                        error.sys("Filer.WriteValue.write<close.BufferedWriter.EMPTY>","There's nothing with the Reader");
+                    }
+                } catch (IOException e) {
+                    error.sys("Filer.WriteValue.write<close.BufferedWriter>","There's sth wrong with close Reader",e);
+                    e.fillInStackTrace();
+                }
+            }
+
         }
     }
 
     //检查是否存在变量
     public static boolean check(String content, String value) {
-        try (Scanner sc = new Scanner(new FileReader("sec/Value/value.txt"))) {
+        try (Scanner sc = new Scanner(new FileReader("src/Value/value.txt"))) {
             int reading = 0;
             while (sc.hasNextLine()) {
                 reading++;
                 String line = sc.nextLine();
                 if (line.startsWith(content)) {
-                modifyLine(reading-1, content + "(" + value + ")");
+                modifyLine(reading, content + "(" + value + ")");
                 return true;
                 }
             }
