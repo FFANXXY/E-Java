@@ -1,10 +1,15 @@
-package Filer;
+package Value;
 
 import ColorBack.error;
+import Values.WriteValue;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Value {
     public static void add(String parameter,String value) {
@@ -52,6 +57,25 @@ public class Value {
 
     private static List<String> getPar(String str) {
         return new ArrayList<>(Arrays.asList(str.split(",")));
+    }
+
+    //获取指定变量位置
+    public static Optional<String> readValue(String content) {
+        String filePath = "src/Value/value.txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(content)) {
+                    String value = line.substring(line.indexOf("(") + 1, line.indexOf(")"));
+                    return Optional.of(value);
+                }
+            }
+        } catch (IOException e) {
+            // 报错
+            System.err.println("PackageError " + e.getMessage());
+        }
+        return Optional.empty(); //返回空
+
     }
 }
 

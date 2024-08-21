@@ -9,14 +9,11 @@ prints(Fanxy,H.D.D)
 printf(----------------)
 Value(author,HDD by Fanxy)
 
-print(Wait Some Times,The Opened App was:)
-printv(author)
+printE(Wait Some Times,The Opened App was:,&author,\&AUTHOR)
 
 @n
 random(ram,124,126)
-print(总共用时:)
-printv(ram)
-print(ms)
+printE(总共用时:,&ram,ms)
 
 Value(1,1)
 
@@ -24,4 +21,17 @@ Value(1,1)
 opera(add,ram,1,over)
 printv(over)
 
+@n
+printf(请输入文本)
+Scan(v)
+printv(v)
+
+if(is=[v,你好])
+>printf(@n真的是你啊!)
+>printf(\@n可以换行)
+>Value(input_text,true)
+
+if(V[input_text])
+>@n
+>printv(input_text)
 $

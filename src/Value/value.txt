@@ -1,4 +1,0 @@
-author(HDD by Fanxy)
-ram(125)
-1(1)
-over(126.0)

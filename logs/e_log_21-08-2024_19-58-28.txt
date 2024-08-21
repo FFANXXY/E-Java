@@ -1,0 +1,7 @@
+E-Java Logs<RUNNING>
+========================
+Wed Aug 21 19:58:28 CST 2024
+null
+========================
+isStarting!
+src/runs/123.txt
